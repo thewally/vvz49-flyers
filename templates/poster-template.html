@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>VVZ'49 flyer</title>
+<style>
+  @font-face {
+    font-family: "Archivo Black";
+    src: url("../assets/fonts/ArchivoBlack-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Archivo";
+    src: url("../assets/fonts/Archivo-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+  }
+
+  :root {
+    --vvz-groen: #35A044;
+    --navy: #0B2A52;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 1080px;
+    height: 1350px;
+    font-family: "Archivo", sans-serif;
+    overflow: hidden;
+  }
+
+  /* ACHTERGROND — vervang de background-image url() hieronder door een eigen sfeerfoto
+     (opslaan naast dit bestand of in assets/, en het pad hier aanpassen).
+     Hoe donkerder/contrastrijker de foto, hoe beter de witte tekst leesbaar blijft. */
+  .flyer {
+    position: relative;
+    width: 1080px;
+    height: 1350px;
+    background-color: #111;
+    background-image:
+      linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 35%, rgba(0,0,0,0.15) 60%, rgba(0,0,0,0.65) 100%),
+      url("VERVANG-DIT-PAD-NAAR-ACHTERGRONDFOTO.jpg");
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+  }
+
+  /* KICKER — korte aankondiging linksboven, twee regels, wit, vetgedrukt */
+  .kicker {
+    position: absolute;
+    top: 64px;
+    left: 56px;
+    right: 260px;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 40px;
+    line-height: 1.15;
+    text-transform: uppercase;
+  }
+
+  /* LOGO — rechtsboven, op een wit rondje voor contrast op elke achtergrond */
+  .logo-badge {
+    position: absolute;
+    top: 40px;
+    right: 48px;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.35);
+  }
+  .logo-badge img {
+    width: 118px;
+    height: 118px;
+    object-fit: contain;
+  }
+
+  /* GROTE KOP — 2 tot 4 regels, uppercase, Archivo Black. Zet .accent op de regel(s)
+     die in het VVZ-groen moeten, de rest blijft wit. */
+  .headline {
+    position: absolute;
+    left: 56px;
+    right: 56px;
+    top: 330px;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 108px;
+    line-height: 0.98;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+  }
+  .headline .accent { color: var(--vvz-groen); }
+
+  /* INFOBOX — groen vlak onderaan met datum/tijd/locatie (vet, wit of zwart) en een
+     oproep-tot-actie regel. Voeg zoveel <p>-regels toe als nodig. */
+  .infobox {
+    position: absolute;
+    left: 56px;
+    right: 56px;
+    bottom: 64px;
+    background: var(--vvz-groen);
+    border-radius: 12px;
+    padding: 36px 44px;
+    text-align: center;
+  }
+  .infobox p {
+    margin: 0 0 6px 0;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 34px;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+  .infobox .locatie { color: var(--navy); }
+  .infobox hr {
+    border: none;
+    border-top: 2px solid rgba(255,255,255,0.7);
+    margin: 18px auto;
+    width: 60%;
+  }
+  .infobox .cta {
+    margin-bottom: 0;
+    font-size: 28px;
+  }
+</style>
+</head>
+<body>
+  <div class="flyer">
+    <div class="kicker">
+      KICKER REGEL 1<br>
+      KICKER REGEL 2
+    </div>
+
+    <div class="logo-badge">
+      <img src="../assets/logos/vvz49.png" alt="VVZ'49 logo">
+    </div>
+
+    <div class="headline">
+      GROTE<br>
+      KOP<br>
+      <span class="accent">HIER</span>
+    </div>
+
+    <div class="infobox">
+      <p>DATUM EN TIJD</p>
+      <p class="locatie">LOCATIE VAN DE ACTIVITEIT</p>
+      <hr>
+      <p class="cta">OPROEP TOT ACTIE — KOM LANGS!</p>
+    </div>
+  </div>
+</body>
+</html>

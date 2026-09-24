@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<title>VVZ'49 — Grote Clubactie poster</title>
+<style>
+  @font-face {
+    font-family: "Archivo Black";
+    src: url("../assets/fonts/ArchivoBlack-Regular.woff2") format("woff2");
+    font-weight: 400;
+    font-style: normal;
+  }
+  @font-face {
+    font-family: "Archivo";
+    src: url("../assets/fonts/Archivo-Variable.woff2") format("woff2");
+    font-weight: 100 900;
+    font-style: normal;
+  }
+
+  :root {
+    --vvz-groen: #35A044;
+    --groen-donker: #2C8639;
+    --groen-licht: #3FB84F;
+    --navy: #0B2A52;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 2481px;
+    height: 3508px;
+    font-family: "Archivo", sans-serif;
+    overflow: hidden;
+  }
+
+  /* A3-poster (297x420mm @ 150dpi = 2481x3508px). */
+  .poster {
+    position: relative;
+    width: 2481px;
+    height: 3508px;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  /* ACHTERGROND — grasmat: horizontale maai-strepen in twee groentinten, met
+     voetbalveld-lijnen (middenlijn, middencirkel, twee hoekschoppen) als SVG-overlay,
+     zodat direct duidelijk is dat dit een voetbalveld is. */
+  .gras {
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      180deg,
+      var(--groen-licht) 0px, var(--groen-licht) 292px,
+      var(--groen-donker) 292px, var(--groen-donker) 584px
+    );
+  }
+  .veldlijnen {
+    position: absolute;
+    inset: 0;
+  }
+  .schaduw {
+    position: absolute;
+    inset: 0;
+    background-image: linear-gradient(
+      180deg,
+      rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.05) 14%,
+      rgba(0,0,0,0.05) 68%, rgba(0,0,0,0.50) 100%
+    );
+  }
+
+  /* KICKER — linksboven */
+  .kicker {
+    position: absolute;
+    top: 110px;
+    left: 120px;
+    right: 640px;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 62px;
+    line-height: 1.15;
+    text-transform: uppercase;
+    text-shadow: 0 3px 10px rgba(0,0,0,0.45);
+  }
+
+  /* VVZ'49 LOGO — rechtsboven, op wit rondje */
+  .logo-badge {
+    position: absolute;
+    top: 70px;
+    right: 100px;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    background: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.35);
+  }
+  .logo-badge img {
+    width: 330px;
+    height: 330px;
+    object-fit: contain;
+  }
+
+  /* GROTE CLUBACTIE — logo-badge, prominent, wit paneel met het officiële GCA-logo */
+  .gca-badge {
+    position: absolute;
+    top: 560px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1120px;
+    background: #fff;
+    border-radius: 28px;
+    padding: 46px 70px 40px;
+    text-align: center;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  }
+  .gca-badge img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .gca-badge .gca-caption {
+    margin-top: 18px;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 30px;
+    color: var(--navy);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  /* GROTE KOP — navy banner zodat de tekst goed leesbaar blijft op de grasmat */
+  .headline-banner {
+    position: absolute;
+    left: 120px;
+    right: 120px;
+    top: 1260px;
+    background: var(--navy);
+    border-radius: 24px;
+    padding: 56px 70px;
+    text-align: center;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  }
+  .headline-banner .headline {
+    margin: 0;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 116px;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+  }
+  .headline-banner .accent { color: var(--groen-licht); }
+
+  /* MIDDENCIRKEL-ZONE — ruimte om de veldlijnen te laten "ademen" tussen kop en loten */
+
+  /* LOTEN — twee witte kaarten met QR-code, elk duidelijk gelabeld met het lot-type */
+  .loten {
+    position: absolute;
+    left: 120px;
+    right: 120px;
+    top: 2180px;
+    display: flex;
+    justify-content: space-between;
+    gap: 60px;
+  }
+  .lot-kaart {
+    flex: 1;
+    background: #fff;
+    border-radius: 28px;
+    padding: 48px 40px 44px;
+    text-align: center;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  }
+  .lot-kaart .lot-naam {
+    font-family: "Archivo Black", sans-serif;
+    font-size: 68px;
+    color: var(--navy);
+    text-transform: uppercase;
+    margin: 0 0 30px 0;
+  }
+  .lot-kaart img.qr {
+    width: 460px;
+    height: 460px;
+    display: block;
+    margin: 0 auto;
+  }
+  .lot-kaart .lot-uitleg {
+    margin-top: 28px;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 32px;
+    color: var(--navy);
+    text-transform: uppercase;
+  }
+
+  /* INFOBOX — groen vlak onderaan met oproep-tot-actie */
+  .infobox {
+    position: absolute;
+    left: 120px;
+    right: 120px;
+    bottom: 120px;
+    background: var(--vvz-groen);
+    border-radius: 24px;
+    padding: 56px 70px;
+    text-align: center;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.35);
+  }
+  .infobox p {
+    margin: 0 0 16px 0;
+    font-family: "Archivo Black", sans-serif;
+    font-size: 58px;
+    line-height: 1.25;
+    text-transform: uppercase;
+  }
+  .infobox .locatie { color: var(--navy); }
+  .infobox hr {
+    border: none;
+    border-top: 4px solid rgba(255,255,255,0.7);
+    margin: 30px auto;
+    width: 55%;
+  }
+  .infobox .cta {
+    margin-bottom: 0;
+    font-size: 46px;
+  }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="gras"></div>
+
+    <svg class="veldlijnen" viewBox="0 0 2481 3508" xmlns="http://www.w3.org/2000/svg">
+      <!-- middenlijn -->
+      <line x1="0" y1="1780" x2="2481" y2="1780" stroke="#ffffff" stroke-opacity="0.85" stroke-width="7"/>
+      <!-- middencirkel + middenstip -->
+      <circle cx="1240" cy="1780" r="330" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="7"/>
+      <circle cx="1240" cy="1780" r="10" fill="#ffffff" fill-opacity="0.85"/>
+      <!-- zijlijn bovenin -->
+      <line x1="0" y1="30" x2="2481" y2="30" stroke="#ffffff" stroke-opacity="0.6" stroke-width="7"/>
+    </svg>
+
+    <div class="schaduw"></div>
+
+    <div class="kicker">
+      STEUN<br>
+      VVZ&rsquo;49!
+    </div>
+
+    <div class="logo-badge">
+      <img src="../assets/logos/vvz49.png" alt="VVZ'49 logo">
+    </div>
+
+    <div class="gca-badge">
+      <img src="../assets/logos/gca-logo.svg" alt="Grote Clubactie logo">
+      <div class="gca-caption">Officiële actie voor onze club</div>
+    </div>
+
+    <div class="headline-banner">
+      <p class="headline">
+        KOOP HIER<br>
+        JE LOTEN VOOR DE<br>
+        <span class="accent">GROTE CLUB ACTIE</span>
+      </p>
+    </div>
+
+    <div class="loten">
+      <div class="lot-kaart">
+        <p class="lot-naam">LOS LOT</p>
+        <img class="qr" src="../assets/qr/qr-los-lot.png" alt="QR-code los lot">
+        <p class="lot-uitleg">Scan &amp; koop 1 lot</p>
+      </div>
+      <div class="lot-kaart">
+        <p class="lot-naam">SUPERLOT</p>
+        <img class="qr" src="../assets/qr/qr-superlot.png" alt="QR-code superlot">
+        <p class="lot-uitleg">Scan &amp; koop het superlot</p>
+      </div>
+    </div>
+
+    <div class="infobox">
+      <p>Elk lot steunt VVZ&rsquo;49</p>
+      <hr>
+      <p class="cta">Scan de juiste QR-code en koop je lot!</p>
+    </div>
+  </div>
+</body>
+</html>

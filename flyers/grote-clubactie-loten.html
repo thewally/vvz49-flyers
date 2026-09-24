@@ -35,7 +35,15 @@
     overflow: hidden;
   }
 
-  /* A3-poster (297x420mm @ 150dpi = 2481x3508px). */
+  /* Print: exact A3-pagina (297x420mm), canvas geschaald zodat het precies past —
+     alleen actief bij het genereren van de PDF via chromium --print-to-pdf. */
+  @page { size: 297mm 420mm; margin: 0; }
+  @media print {
+    html, body { width: 297mm; height: 420mm; }
+    .poster { transform: scale(0.45245); transform-origin: top left; }
+  }
+
+  /* A3-poster, canvas 2481x3508px (~212dpi) zodat de screenshot-PNG scherp print. */
   .poster {
     position: relative;
     width: 2481px;
@@ -239,13 +247,13 @@
 
     <div class="loten">
       <div class="lot-kaart">
-        <p class="lot-naam">LOS LOT</p>
-        <img class="qr" src="../assets/qr/qr-los-lot.png" alt="QR-code los lot">
+        <p class="lot-naam">LOSSE LOTEN</p>
+        <img class="qr" src="../assets/qr/qr-los-lot.png" alt="QR-code losse loten">
         <p class="lot-uitleg">Scan &amp; koop een lot</p>
       </div>
       <div class="lot-kaart">
-        <p class="lot-naam">SUPERLOT</p>
-        <img class="qr" src="../assets/qr/qr-superlot.png" alt="QR-code superlot">
+        <p class="lot-naam">SUPERLOTEN</p>
+        <img class="qr" src="../assets/qr/qr-superlot.png" alt="QR-code superloten">
         <p class="lot-uitleg">Scan &amp; koop een superlot</p>
       </div>
     </div>

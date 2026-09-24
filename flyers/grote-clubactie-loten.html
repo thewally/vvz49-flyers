@@ -44,29 +44,23 @@
     overflow: hidden;
   }
 
-  /* ACHTERGROND — grasmat: horizontale maai-strepen in twee groentinten, met
-     voetbalveld-lijnen (middenlijn, middencirkel, twee hoekschoppen) als SVG-overlay,
-     zodat direct duidelijk is dat dit een voetbalveld is. */
+  /* ACHTERGROND — close-up foto van grasmat met een witte veldlijn, zodat meteen
+     duidelijk is dat dit een voetbalveld is (full-bleed, met donkere overlay voor
+     leesbare tekst erbovenop). */
   .gras {
     position: absolute;
     inset: 0;
-    background-image: repeating-linear-gradient(
-      180deg,
-      var(--groen-licht) 0px, var(--groen-licht) 292px,
-      var(--groen-donker) 292px, var(--groen-donker) 584px
-    );
-  }
-  .veldlijnen {
-    position: absolute;
-    inset: 0;
+    background-image: url("../assets/achtergronden/voetbalveld-lijn.jpg");
+    background-size: cover;
+    background-position: 65% 50%;
   }
   .schaduw {
     position: absolute;
     inset: 0;
     background-image: linear-gradient(
       180deg,
-      rgba(0,0,0,0.40) 0%, rgba(0,0,0,0.05) 14%,
-      rgba(0,0,0,0.05) 68%, rgba(0,0,0,0.50) 100%
+      rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 16%,
+      rgba(0,0,0,0.15) 66%, rgba(0,0,0,0.60) 100%
     );
   }
 
@@ -120,14 +114,6 @@
     width: 100%;
     height: auto;
     display: block;
-  }
-  .gca-badge .gca-caption {
-    margin-top: 18px;
-    font-family: "Archivo Black", sans-serif;
-    font-size: 30px;
-    color: var(--navy);
-    text-transform: uppercase;
-    letter-spacing: 1px;
   }
 
   /* GROTE KOP — navy banner zodat de tekst goed leesbaar blijft op de grasmat */
@@ -228,17 +214,6 @@
 <body>
   <div class="poster">
     <div class="gras"></div>
-
-    <svg class="veldlijnen" viewBox="0 0 2481 3508" xmlns="http://www.w3.org/2000/svg">
-      <!-- middenlijn -->
-      <line x1="0" y1="1780" x2="2481" y2="1780" stroke="#ffffff" stroke-opacity="0.85" stroke-width="7"/>
-      <!-- middencirkel + middenstip -->
-      <circle cx="1240" cy="1780" r="330" fill="none" stroke="#ffffff" stroke-opacity="0.85" stroke-width="7"/>
-      <circle cx="1240" cy="1780" r="10" fill="#ffffff" fill-opacity="0.85"/>
-      <!-- zijlijn bovenin -->
-      <line x1="0" y1="30" x2="2481" y2="30" stroke="#ffffff" stroke-opacity="0.6" stroke-width="7"/>
-    </svg>
-
     <div class="schaduw"></div>
 
     <div class="kicker">
@@ -252,7 +227,6 @@
 
     <div class="gca-badge">
       <img src="../assets/logos/gca-logo.svg" alt="Grote Clubactie logo">
-      <div class="gca-caption">Officiële actie voor onze club</div>
     </div>
 
     <div class="headline-banner">
@@ -267,19 +241,19 @@
       <div class="lot-kaart">
         <p class="lot-naam">LOS LOT</p>
         <img class="qr" src="../assets/qr/qr-los-lot.png" alt="QR-code los lot">
-        <p class="lot-uitleg">Scan &amp; koop 1 lot</p>
+        <p class="lot-uitleg">Scan &amp; koop een lot</p>
       </div>
       <div class="lot-kaart">
         <p class="lot-naam">SUPERLOT</p>
         <img class="qr" src="../assets/qr/qr-superlot.png" alt="QR-code superlot">
-        <p class="lot-uitleg">Scan &amp; koop het superlot</p>
+        <p class="lot-uitleg">Scan &amp; koop een superlot</p>
       </div>
     </div>
 
     <div class="infobox">
       <p>Elk lot steunt VVZ&rsquo;49</p>
       <hr>
-      <p class="cta">Scan de juiste QR-code en koop je lot!</p>
+      <p class="cta">De opbrengst gaat naar een interactieve voetbalmuur</p>
     </div>
   </div>
 </body>
